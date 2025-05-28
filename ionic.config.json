@@ -1,0 +1,8 @@
+{
+  "name": "New-Dawfy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "2dfe39a1"
+}
