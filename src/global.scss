@@ -35,3 +35,43 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+body {
+    border: none;
+    padding: 0;
+}
+
+#cabecera {
+    border: none;
+    background-color: #1f1f1f;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+ion-row.scrollable {
+    overflow-y: auto;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    display: flex;
+}
+
+
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: max-content;
+    padding: 0 12px;
+}
+
+
+
+.scroll-container ion-card {
+    flex: 0 0 25vw;
+    min-width: 25vw;
+    max-width: 25vw;
+}

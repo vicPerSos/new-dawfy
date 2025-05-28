@@ -1,0 +1,58 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <div id="cabecera">
+      <img src="../../assets/cabecera.png" style="width: 200px;" alt="logo">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-grid [fixed]="true">
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-chip
+            *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]">Default</ion-chip>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]" size="6" class="lista">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+</ion-content>
