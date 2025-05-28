@@ -13,8 +13,9 @@ import { WelcomePage } from './welcome.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    WelcomePageRoutingModule,
+    WelcomePage
   ],
-  declarations: [WelcomePage]
+
 })
-export class WelcomePageModule {}
+export class WelcomePageModule { }

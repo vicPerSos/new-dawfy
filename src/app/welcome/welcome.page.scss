@@ -1,0 +1,12 @@
+.button-container {
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+}
+
+ion-button {
+  width: auto; /* No ocupa el 100% del ancho */
+  min-width: 150px; /* Ancho mínimo para que se vea bien */
+  padding: 0 20px;
+}
