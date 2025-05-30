@@ -26,5 +26,8 @@ export class WelcomePage implements OnInit {
   navigateToHome() {
     this.router.navigate(['/tabs/home']);
   }
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 }
