@@ -1,0 +1,198 @@
+<ion-content [fullscreen]="true" class="register-container">
+  <div class="register-wrapper">
+    <div class="register-image">
+      <img src="assets/icon/favicon.png" alt="Dawfy login" class="centered-image">
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+      <ion-item class="dark-item">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="Nombre"></ion-input>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input formControlName="Correo"></ion-input>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Fecha de Nacimiento</ion-label><br>
+        <ion-datetime formControlName="FechaNacimiento" displayFormat="YYYY-MM-DD" pickerFormat="YYYY MM DD"
+          presentation="date"></ion-datetime>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Pais</ion-label><br>
+        <ion-select formControlName="Pais">
+          <ion-select-option>AD</ion-select-option>
+          <ion-select-option>AE</ion-select-option>
+          <ion-select-option>AF</ion-select-option>
+          <ion-select-option>AG</ion-select-option>
+          <ion-select-option>AI</ion-select-option>
+          <ion-select-option>AL</ion-select-option>
+          <ion-select-option>AM</ion-select-option>
+          <ion-select-option>AO</ion-select-option>
+          <ion-select-option>AQ</ion-select-option>
+          <ion-select-option>AR</ion-select-option>
+          <ion-select-option>AS</ion-select-option>
+          <ion-select-option>AT</ion-select-option>
+          <ion-select-option>AU</ion-select-option>
+          <ion-select-option>AW</ion-select-option>
+          <ion-select-option>AX</ion-select-option>
+          <ion-select-option>AZ</ion-select-option>
+          <ion-select-option>BA</ion-select-option>
+          <ion-select-option>BB</ion-select-option>
+          <ion-select-option>BD</ion-select-option>
+          <ion-select-option>BE</ion-select-option>
+          <ion-select-option>BF</ion-select-option>
+          <ion-select-option>BG</ion-select-option>
+          <ion-select-option>BH</ion-select-option>
+          <ion-select-option>BI</ion-select-option>
+          <ion-select-option>BJ</ion-select-option>
+          <ion-select-option>BM</ion-select-option>
+          <ion-select-option>BN</ion-select-option>
+          <ion-select-option>BO</ion-select-option>
+          <ion-select-option>BR</ion-select-option>
+          <ion-select-option>BS</ion-select-option>
+          <ion-select-option>BT</ion-select-option>
+          <ion-select-option>BW</ion-select-option>
+          <ion-select-option>BY</ion-select-option>
+          <ion-select-option>BZ</ion-select-option>
+          <ion-select-option>CA</ion-select-option>
+          <ion-select-option>CD</ion-select-option>
+          <ion-select-option>CF</ion-select-option>
+          <ion-select-option>CG</ion-select-option>
+          <ion-select-option>CH</ion-select-option>
+          <ion-select-option>CL</ion-select-option>
+          <ion-select-option>CM</ion-select-option>
+          <ion-select-option>CN</ion-select-option>
+          <ion-select-option>CO</ion-select-option>
+          <ion-select-option>CR</ion-select-option>
+          <ion-select-option>CU</ion-select-option>
+          <ion-select-option>CV</ion-select-option>
+          <ion-select-option>CY</ion-select-option>
+          <ion-select-option>CZ</ion-select-option>
+          <ion-select-option>DE</ion-select-option>
+          <ion-select-option>DJ</ion-select-option>
+          <ion-select-option>DK</ion-select-option>
+          <ion-select-option>DM</ion-select-option>
+          <ion-select-option>DO</ion-select-option>
+          <ion-select-option>DZ</ion-select-option>
+          <ion-select-option>EC</ion-select-option>
+          <ion-select-option>EE</ion-select-option>
+          <ion-select-option>EG</ion-select-option>
+          <ion-select-option>EN</ion-select-option>
+          <ion-select-option>ER</ion-select-option>
+          <ion-select-option>ES</ion-select-option>
+          <ion-select-option>ET</ion-select-option>
+          <ion-select-option>FI</ion-select-option>
+          <ion-select-option>FJ</ion-select-option>
+          <ion-select-option>FR</ion-select-option>
+          <ion-select-option>GA</ion-select-option>
+          <ion-select-option>GB</ion-select-option>
+          <ion-select-option>GE</ion-select-option>
+          <ion-select-option>GH</ion-select-option>
+          <ion-select-option>GM</ion-select-option>
+          <ion-select-option>GN</ion-select-option>
+          <ion-select-option>GQ</ion-select-option>
+          <ion-select-option>GR</ion-select-option>
+          <ion-select-option>GT</ion-select-option>
+          <ion-select-option>HN</ion-select-option>
+          <ion-select-option>HR</ion-select-option>
+          <ion-select-option>HT</ion-select-option>
+          <ion-select-option>HU</ion-select-option>
+          <ion-select-option>ID</ion-select-option>
+          <ion-select-option>IE</ion-select-option>
+          <ion-select-option>IL</ion-select-option>
+          <ion-select-option>IN</ion-select-option>
+          <ion-select-option>IO</ion-select-option>
+          <ion-select-option>IQ</ion-select-option>
+          <ion-select-option>IR</ion-select-option>
+          <ion-select-option>IS</ion-select-option>
+          <ion-select-option>IT</ion-select-option>
+          <ion-select-option>JP</ion-select-option>
+          <ion-select-option>KE</ion-select-option>
+          <ion-select-option>KH</ion-select-option>
+          <ion-select-option>KM</ion-select-option>
+          <ion-select-option>KR</ion-select-option>
+          <ion-select-option>KW</ion-select-option>
+          <ion-select-option>KZ</ion-select-option>
+          <ion-select-option>LA</ion-select-option>
+          <ion-select-option>LB</ion-select-option>
+          <ion-select-option>LT</ion-select-option>
+          <ion-select-option>LU</ion-select-option>
+          <ion-select-option>LV</ion-select-option>
+          <ion-select-option>LY</ion-select-option>
+          <ion-select-option>MA</ion-select-option>
+          <ion-select-option>MC</ion-select-option>
+          <ion-select-option>MD</ion-select-option>
+          <ion-select-option>MG</ion-select-option>
+          <ion-select-option>MV</ion-select-option>
+          <ion-select-option>MX</ion-select-option>
+          <ion-select-option>MY</ion-select-option>
+          <ion-select-option>MZ</ion-select-option>
+          <ion-select-option>NA</ion-select-option>
+          <ion-select-option>NE</ion-select-option>
+          <ion-select-option>NG</ion-select-option>
+          <ion-select-option>NI</ion-select-option>
+          <ion-select-option>NL</ion-select-option>
+          <ion-select-option>NO</ion-select-option>
+          <ion-select-option>NP</ion-select-option>
+          <ion-select-option>NZ</ion-select-option>
+          <ion-select-option>OM</ion-select-option>
+          <ion-select-option>PA</ion-select-option>
+          <ion-select-option>PE</ion-select-option>
+          <ion-select-option>PG</ion-select-option>
+          <ion-select-option>PH</ion-select-option>
+          <ion-select-option>PK</ion-select-option>
+          <ion-select-option>PL</ion-select-option>
+          <ion-select-option>PT</ion-select-option>
+          <ion-select-option>PY</ion-select-option>
+          <ion-select-option>QA</ion-select-option>
+          <ion-select-option>RO</ion-select-option>
+          <ion-select-option>RS</ion-select-option>
+          <ion-select-option>RU</ion-select-option>
+          <ion-select-option>SA</ion-select-option>
+          <ion-select-option>SE</ion-select-option>
+          <ion-select-option>SG</ion-select-option>
+          <ion-select-option>SI</ion-select-option>
+          <ion-select-option>SK</ion-select-option>
+          <ion-select-option>SN</ion-select-option>
+          <ion-select-option>SV</ion-select-option>
+          <ion-select-option>TD</ion-select-option>
+          <ion-select-option>TH</ion-select-option>
+          <ion-select-option>TN</ion-select-option>
+          <ion-select-option>TR</ion-select-option>
+          <ion-select-option>UA</ion-select-option>
+          <ion-select-option>US</ion-select-option>
+          <ion-select-option>UY</ion-select-option>
+          <ion-select-option>UZ</ion-select-option>
+          <ion-select-option>VE</ion-select-option>
+          <ion-select-option>VN</ion-select-option>
+          <ion-select-option>YE</ion-select-option>
+          <ion-select-option>ZA</ion-select-option>
+          <ion-select-option>ZM</ion-select-option>
+          <ion-select-option>ZW</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Foto (pega la url aqui)</ion-label>
+        <ion-input formControlName="Foto"></ion-input>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="Username"></ion-input>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Conraseña</ion-label>
+        <ion-input formControlName="Password" type="password"></ion-input>
+      </ion-item>
+      <ion-item class="dark-item">
+        <ion-label position="floating">Confirmar contraseña</ion-label>
+        <ion-input formControlName="ConfirmPassword" type="password"></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" class="login-btn" [disabled]="registerForm.invalid">
+        Registrarse
+      </ion-button>
+
+    </form>
+  </div>
+</ion-content>

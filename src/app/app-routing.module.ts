@@ -18,7 +18,17 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./register-type/register-type.page').then(m => m.RegisterTypePage)
+  },
+  {
+    path: 'register/client',
+    loadComponent: () => import('./register-client/register-client.page').then( m => m.RegisterClientPage)
   }
+
+
 
 
 

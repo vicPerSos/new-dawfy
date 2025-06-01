@@ -1,0 +1,124 @@
+ion-content.dark-theme {
+    --ion-background-color: #121212;
+    --ion-text-color: #ffffff;
+    --ion-border-color: #333333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px);
+ // Asegura que ocupe toda la altura de la ventana
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 96vh;
+    box-sizing: border-box;
+    
+}
+
+
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    /* Esto es lo que mantiene imagen y form en fila */
+    max-width: 900px;
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    outline: 1px solid #444;
+    background: #1e1e1e;
+    height: auto;
+    /* Altura natural */
+    flex: none;
+
+
+    .login-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: #252525;
+
+        .centered-image {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .login-form {
+        flex: 1;
+        padding: 2rem;
+        background: #1e1e1e;
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+
+            ion-title {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #ffffff;
+            }
+        }
+
+        .dark-item {
+            --background: #2d2d2d;
+            --color: #ffffff;
+            --border-color: #444;
+            --highlight-color-focused: #3897f0;
+            margin-bottom: 1.5rem;
+            --border-radius: 8px;
+        }
+
+        .login-btn {
+            margin-top: 1rem;
+            --border-radius: 8px;
+            --color: #ffffff;
+        }
+
+        .form-footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+
+            a {
+                color: #3897f0;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        margin: 0 auto;
+        width: 95%;
+
+        .login-image {
+            order: -1;
+            /* Mueve la imagen arriba en móviles */
+            padding: 1.5rem;
+
+            .centered-image {
+                max-width: 60%;
+                max-height: 200px;
+            }
+        }
+    }
+}

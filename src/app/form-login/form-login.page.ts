@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms'; // <-- Importa ReactiveFormsModule, FormGroup, FormBuilder y Validators
 import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; // <-- Agrega esto
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-form-login',
@@ -13,38 +15,45 @@ import { Router } from '@angular/router';
     IonicModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule // <-- ¡Asegúrate de importar ReactiveFormsModule aquí!
+    ReactiveFormsModule,
+    HttpClientModule // <-- Agrega esto aquí
   ]
 })
 export class FormLoginPage implements OnInit {
-
-  // 1. Declara la propiedad loginForm de tipo FormGroup
-  loginForm!: FormGroup; // '!' le dice a TypeScript que será inicializado
+  loginForm!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, // <-- Inyecta FormBuilder
-    private router: Router
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    // 2. Inicializa loginForm en ngOnInit
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required], // Campo 'username' con validación de requerido
-      password: ['', Validators.required]  // Campo 'password' con validación de requerido
+      username: ['', [Validators.required]], // Usar array para validadores
+      password: ['', [Validators.required]]
     });
   }
 
-  // 3. Define la función onSubmit
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Formulario de login válido:', this.loginForm.value);
-      // Aquí iría tu lógica para enviar los datos de login a un servicio, etc.
-      // Por ejemplo, navegar a otra página:
-      // this.router.navigate(['/home']);
+      this.authService.logIn(this.loginForm.value).subscribe(
+        (token: String) => {
+          if (token) {
+            document.cookie = `authorization=${token}; path=/;`;
+            console.log('Token guardado en cookie authorization '+ token);
+            this.router.navigate(['/tabs/home']);
+          } else {
+            console.error('Token no recibido en la respuesta');
+          }
+        },
+        (error: any) => {
+          console.error('Error en login:', error);
+        }
+      );
     } else {
       console.log('Formulario de login inválido');
-      // Puedes añadir lógica para mostrar mensajes de error al usuario
     }
   }
-
 }

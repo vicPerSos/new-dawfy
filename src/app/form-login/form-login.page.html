@@ -1,25 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>formLogin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding dark-theme">
+  <div class="content-wrapper">
+    <div class="login-container">
+      <div class="login-image">
+        <img src="assets/icon/favicon.png" alt="Dawfy login" class="centered-image">
+      </div>
+      <div class="login-form">
+        <div class="form-header">
+          <ion-title>Dawfy</ion-title>
+        </div>
 
-<ion-content [fullscreen]="true">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input type="username" formControlName="username"></ion-input>
-    </ion-item>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <ion-item class="dark-item">
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input formControlName="username"></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+          <ion-item class="dark-item">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
 
-    <div class="button-container">
-      <ion-button expand="block" type="submit" [disabled]="!loginForm.valid">
-        Log In
-      </ion-button>
+          </ion-item>
+
+          <ion-button type="submit" expand="block" class="login-btn" [disabled]="loginForm.invalid">
+            Iniciar Sesion
+          </ion-button>
+
+        </form>
+
+        <div class="form-footer">
+          <p>¿Has olvidado la contraseña?</p>
+          <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
 </ion-content>

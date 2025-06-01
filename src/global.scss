@@ -36,9 +36,11 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+html,
 body {
-    border: none;
+    margin: 0;
     padding: 0;
+    overflow: hidden; // si aún hay scroll, esto lo remata
 }
 
 #cabecera {

@@ -1,19 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>welcome</ion-title>
-    <br>
-    <div class="button-container">
-      <ion-button expand="block" (click)="navigateToLogin()">
-        LogIn
-      </ion-button>
-    </div>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <div class="button-container">
-    <ion-button expand="block" (click)="navigateToHome()">
-      Ir a Home
-    </ion-button>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <ion-text color="dark">
+            <h1>Dawfy</h1>
+            <h4>Aplicacion basada en Spotify</h4><br>
+            <q> <i>Disfruta de la música como nunca</i></q>
+          </ion-text>
+          <div class="button-container">
+            <ion-button expand="block" (click)="navigateToLogin()">
+              LogIn
+            </ion-button>
+            <ion-button expand="block" (click)="navigateToRegister()">
+              Registrate
+            </ion-button>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Contenedor de botones integrado -->
+
 </ion-content>

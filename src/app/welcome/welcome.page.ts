@@ -23,8 +23,8 @@ export class WelcomePage implements OnInit {
   ngOnInit() {
   }
 
-  navigateToHome() {
-    this.router.navigate(['/tabs/home']);
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
   navigateToLogin() {
     this.router.navigate(['/login']);
