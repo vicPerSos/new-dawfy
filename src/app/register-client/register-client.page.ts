@@ -66,7 +66,7 @@ export class RegisterClientPage implements OnInit {
       console.log('DTO creado:', dto);
       this.authService.registerClient(dto).subscribe(
         (response: any) => {
-          if (response.status == "Usuario registrado correctamente") {
+          if (response == "Usuario registrado correctamente") {
             this.presentToast('¡Registro completado con éxito!');
             this.router.navigate(['/welcome']);
           } else {

@@ -25,8 +25,13 @@ const routes: Routes = [
   },
   {
     path: 'register/client',
-    loadComponent: () => import('./register-client/register-client.page').then( m => m.RegisterClientPage)
+    loadComponent: () => import('./register-client/register-client.page').then(m => m.RegisterClientPage)
+  },
+  {
+    path: 'register/artist',
+    loadComponent: () => import('./register-artist/register-artist.page').then(m => m.RegisterArtistPage)
   }
+
 
 
 

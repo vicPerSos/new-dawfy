@@ -1,0 +1,27 @@
+ion-searchbar.custom {
+    --background: #1f1f1f;
+    --color: #f8f8f8;
+    --color-focused: #f8f8f8;
+    --box-shadow: 0 0 0 1px #f8f8f8;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --box-shadow: none;
+    --border-radius: 15px;
+    --icon-color: #ee4300;
+    margin-top: 20px;
+}
+ion-container {
+    --background: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.ion-padding {
+    --background: #1f1f1f;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

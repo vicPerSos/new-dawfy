@@ -15,6 +15,6 @@ export class RegisterTypePage implements OnInit {
     this.router.navigate(['/register/client']);
   }
   regiterArtist() {
-    this.router.navigate(['/login/artist']);
+    this.router.navigate(['/register/artist']);
   }
 }
