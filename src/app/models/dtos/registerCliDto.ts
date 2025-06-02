@@ -1,12 +1,11 @@
 export class RegisterCliDto {
-    private Nombre: string;
-    private Correo: string;
-    private FechaNacimiento: Date;
-    private Pais: string;
-    private Foto: string;
-    private Username: string;
-    private Password: string;
-    private ConfirmPassword: string;
+    private nombre: string;
+    private correo: string;
+    private fechaNacimiento: Date;
+    private pais: string;
+    private foto: string;
+    private username: string;
+    private password: string;
 
     constructor(
         nombre: string,
@@ -16,72 +15,65 @@ export class RegisterCliDto {
         foto: string,
         username: string,
         password: string,
-        confirmPassword: string,
 
     ) {
-        this.Nombre = nombre;
-        this.Correo = correo;
-        this.FechaNacimiento = fechaNacimiento;
-        this.Pais = pais;
-        this.Foto = foto;
-        this.Username = username;
-        this.Password = password;
-        this.ConfirmPassword = confirmPassword;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pais = pais;
+        this.foto = foto;
+        this.username = username;
+        this.password = password;
     }
 
-    get nombre(): string {
-        return this.Nombre;
+    get _nombre(): string {
+        return this.nombre;
     }
-    set nombre(value: string) {
-        this.Nombre = value;
-    }
-
-    get correo(): string {
-        return this.Correo;
-    }
-    set correo(value: string) {
-        this.Correo = value;
+    set _nombre(value: string) {
+        this.nombre = value;
     }
 
-    get fechaNacimiento(): Date {
-        return this.FechaNacimiento;
+    get _correo(): string {
+        return this.correo;
     }
-    set fechaNacimiento(value: Date) {
-        this.FechaNacimiento = value;
-    }
-
-    get pais(): string {
-        return this.Pais;
-    }
-    set pais(value: string) {
-        this.Pais = value;
+    set _correo(value: string) {
+        this.correo = value;
     }
 
-    get foto(): string {
-        return this.Foto;
+    get _fechaNacimiento(): Date {
+        return this.fechaNacimiento;
     }
-    set foto(value: string) {
-        this.Foto = value;
-    }
-
-    get username(): string {
-        return this.Username;
-    }
-    set username(value: string) {
-        this.Username = value;
+    set _fechaNacimiento(value: Date) {
+        this.fechaNacimiento = value;
     }
 
-    get password(): string {
-        return this.Password;
+    get _pais(): string {
+        return this.pais;
     }
-    set password(value: string) {
-        this.Password = value;
+    set _pais(value: string) {
+        this.pais = value;
     }
 
-    get confirmPassword(): string {
-        return this.ConfirmPassword;
+    get _foto(): string {
+        return this.foto;
     }
-    set confirmPassword(value: string) {
-        this.ConfirmPassword = value;
+    set _foto(value: string) {
+        this.foto = value;
     }
+
+    get _username(): string {
+        return this.username;
+    }
+    set _username(value: string) {
+        this.username = value;
+    }
+
+    get _password(): string {
+        return this.password;
+    }
+    set _password(value: string) {
+        this.password = value;
+    }
+
+
 }
