@@ -7,10 +7,43 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">register-artist</ion-title>
+      <ion-title size="large">Bienvenido Artista</ion-title>
     </ion-toolbar>
   </ion-header>
   <div class="ion-padding">
-    <ion-searchbar showCancelButton="focus" class="custom" placeholder="Buscar"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearchChange()" placeholder="Buscar" showCancelButton="focus"
+      class="custom">
+    </ion-searchbar>
   </div>
+
+  <!-- Mensaje cuando el buscador está vacío -->
+  <div class="vacio" *ngIf="searchTerm.trim() === ''">
+    <ion-text color="medium">
+      Encuéntrate como artista
+    </ion-text>
+  </div>
+
+  <!-- Resultados de búsqueda -->
+  <ion-list *ngIf="searchTerm.trim() !== '' && results.length > 0">
+    <ion-item *ngFor="let artist of results" (click)="openArtistForm(artist)">
+      <ng-container *ngIf="artist.foto && artist.foto !== ''; else noImage">
+        <img [src]="artist.foto" alt="{{ artist.nombre }}" class="artist-image" slot="start"
+          style="width: 40px; height: 40px; border-radius: 50%;">
+      </ng-container>
+      <ng-template #noImage>
+        <ion-icon name="person-circle-outline" slot="start" style="font-size: 40px;"></ion-icon>
+      </ng-template>
+      {{ artist.nombre }}
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje si no hay resultados -->
+  <div class="no-resultados" *ngIf="searchTerm.trim() !== '' && results.length === 0 && !loading">
+    <ion-text color="danger">
+      No encontrado
+    </ion-text>
+  </div>
+
+  <!-- Loader opcional -->
+  <ion-spinner *ngIf="loading"></ion-spinner>
 </ion-content>

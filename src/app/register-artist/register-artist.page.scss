@@ -10,6 +10,7 @@ ion-searchbar.custom {
     --icon-color: #ee4300;
     margin-top: 20px;
 }
+
 ion-container {
     --background: #1f1f1f;
     display: flex;
@@ -24,4 +25,24 @@ div.ion-padding {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+ion-list,
+div.vacio,
+div.no-resultados {
+    margin: 0 30px 30px 30px;
+}
+
+ion-item::part(native) {
+    transform: translateY(0);
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease, transform 0.3s ease;
+
+}
+
+ion-item:hover::part(native) {
+    background-color: #414141;
+    color: #f8f8f8;
+    border-radius: 25px;
+    box-shadow: none;
+    transform: translatex(5px);
 }

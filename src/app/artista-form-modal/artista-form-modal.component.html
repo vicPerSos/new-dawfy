@@ -1,0 +1,186 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Completa los datos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form *ngIf="artistForm" [formGroup]="artistForm" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label position="stacked">Fecha de nacimiento</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY MM DD" presentation="date"
+        formControlName="fechaNacimiento"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="pais" placeholder="Selecciona un país">
+        <ion-select-option value="AD">AD</ion-select-option>
+        <ion-select-option value="AE">AE</ion-select-option>
+        <ion-select-option value="AF">AF</ion-select-option>
+        <ion-select-option value="AG">AG</ion-select-option>
+        <ion-select-option value="AI">AI</ion-select-option>
+        <ion-select-option value="AL">AL</ion-select-option>
+        <ion-select-option value="AM">AM</ion-select-option>
+        <ion-select-option value="AO">AO</ion-select-option>
+        <ion-select-option value="AQ">AQ</ion-select-option>
+        <ion-select-option value="AR">AR</ion-select-option>
+        <ion-select-option value="AS">AS</ion-select-option>
+        <ion-select-option value="AT">AT</ion-select-option>
+        <ion-select-option value="AU">AU</ion-select-option>
+        <ion-select-option value="AW">AW</ion-select-option>
+        <ion-select-option value="AX">AX</ion-select-option>
+        <ion-select-option value="AZ">AZ</ion-select-option>
+        <ion-select-option value="BA">BA</ion-select-option>
+        <ion-select-option value="BB">BB</ion-select-option>
+        <ion-select-option value="BD">BD</ion-select-option>
+        <ion-select-option value="BE">BE</ion-select-option>
+        <ion-select-option value="BF">BF</ion-select-option>
+        <ion-select-option value="BG">BG</ion-select-option>
+        <ion-select-option value="BH">BH</ion-select-option>
+        <ion-select-option value="BI">BI</ion-select-option>
+        <ion-select-option value="BJ">BJ</ion-select-option>
+        <ion-select-option value="BM">BM</ion-select-option>
+        <ion-select-option value="BN">BN</ion-select-option>
+        <ion-select-option value="BO">BO</ion-select-option>
+        <ion-select-option value="BR">BR</ion-select-option>
+        <ion-select-option value="BS">BS</ion-select-option>
+        <ion-select-option value="BT">BT</ion-select-option>
+        <ion-select-option value="BW">BW</ion-select-option>
+        <ion-select-option value="BY">BY</ion-select-option>
+        <ion-select-option value="BZ">BZ</ion-select-option>
+        <ion-select-option value="CA">CA</ion-select-option>
+        <ion-select-option value="CD">CD</ion-select-option>
+        <ion-select-option value="CF">CF</ion-select-option>
+        <ion-select-option value="CG">CG</ion-select-option>
+        <ion-select-option value="CH">CH</ion-select-option>
+        <ion-select-option value="CL">CL</ion-select-option>
+        <ion-select-option value="CM">CM</ion-select-option>
+        <ion-select-option value="CN">CN</ion-select-option>
+        <ion-select-option value="CO">CO</ion-select-option>
+        <ion-select-option value="CR">CR</ion-select-option>
+        <ion-select-option value="CU">CU</ion-select-option>
+        <ion-select-option value="CV">CV</ion-select-option>
+        <ion-select-option value="CY">CY</ion-select-option>
+        <ion-select-option value="CZ">CZ</ion-select-option>
+        <ion-select-option value="DE">DE</ion-select-option>
+        <ion-select-option value="DJ">DJ</ion-select-option>
+        <ion-select-option value="DK">DK</ion-select-option>
+        <ion-select-option value="DM">DM</ion-select-option>
+        <ion-select-option value="DO">DO</ion-select-option>
+        <ion-select-option value="DZ">DZ</ion-select-option>
+        <ion-select-option value="EC">EC</ion-select-option>
+        <ion-select-option value="EE">EE</ion-select-option>
+        <ion-select-option value="EG">EG</ion-select-option>
+        <ion-select-option value="EN">EN</ion-select-option>
+        <ion-select-option value="ER">ER</ion-select-option>
+        <ion-select-option value="ES">ES</ion-select-option>
+        <ion-select-option value="ET">ET</ion-select-option>
+        <ion-select-option value="FI">FI</ion-select-option>
+        <ion-select-option value="FJ">FJ</ion-select-option>
+        <ion-select-option value="FR">FR</ion-select-option>
+        <ion-select-option value="GA">GA</ion-select-option>
+        <ion-select-option value="GB">GB</ion-select-option>
+        <ion-select-option value="GE">GE</ion-select-option>
+        <ion-select-option value="GH">GH</ion-select-option>
+        <ion-select-option value="GM">GM</ion-select-option>
+        <ion-select-option value="GN">GN</ion-select-option>
+        <ion-select-option value="GQ">GQ</ion-select-option>
+        <ion-select-option value="GR">GR</ion-select-option>
+        <ion-select-option value="GT">GT</ion-select-option>
+        <ion-select-option value="HN">HN</ion-select-option>
+        <ion-select-option value="HR">HR</ion-select-option>
+        <ion-select-option value="HT">HT</ion-select-option>
+        <ion-select-option value="HU">HU</ion-select-option>
+        <ion-select-option value="ID">ID</ion-select-option>
+        <ion-select-option value="IE">IE</ion-select-option>
+        <ion-select-option value="IL">IL</ion-select-option>
+        <ion-select-option value="IN">IN</ion-select-option>
+        <ion-select-option value="IO">IO</ion-select-option>
+        <ion-select-option value="IQ">IQ</ion-select-option>
+        <ion-select-option value="IR">IR</ion-select-option>
+        <ion-select-option value="IS">IS</ion-select-option>
+        <ion-select-option value="IT">IT</ion-select-option>
+        <ion-select-option value="JP">JP</ion-select-option>
+        <ion-select-option value="KE">KE</ion-select-option>
+        <ion-select-option value="KH">KH</ion-select-option>
+        <ion-select-option value="KM">KM</ion-select-option>
+        <ion-select-option value="KR">KR</ion-select-option>
+        <ion-select-option value="KW">KW</ion-select-option>
+        <ion-select-option value="KZ">KZ</ion-select-option>
+        <ion-select-option value="LA">LA</ion-select-option>
+        <ion-select-option value="LB">LB</ion-select-option>
+        <ion-select-option value="LT">LT</ion-select-option>
+        <ion-select-option value="LU">LU</ion-select-option>
+        <ion-select-option value="LV">LV</ion-select-option>
+        <ion-select-option value="LY">LY</ion-select-option>
+        <ion-select-option value="MA">MA</ion-select-option>
+        <ion-select-option value="MC">MC</ion-select-option>
+        <ion-select-option value="MD">MD</ion-select-option>
+        <ion-select-option value="MG">MG</ion-select-option>
+        <ion-select-option value="MV">MV</ion-select-option>
+        <ion-select-option value="MX">MX</ion-select-option>
+        <ion-select-option value="MY">MY</ion-select-option>
+        <ion-select-option value="MZ">MZ</ion-select-option>
+        <ion-select-option value="NA">NA</ion-select-option>
+        <ion-select-option value="NE">NE</ion-select-option>
+        <ion-select-option value="NG">NG</ion-select-option>
+        <ion-select-option value="NI">NI</ion-select-option>
+        <ion-select-option value="NL">NL</ion-select-option>
+        <ion-select-option value="NO">NO</ion-select-option>
+        <ion-select-option value="NP">NP</ion-select-option>
+        <ion-select-option value="NZ">NZ</ion-select-option>
+        <ion-select-option value="OM">OM</ion-select-option>
+        <ion-select-option value="PA">PA</ion-select-option>
+        <ion-select-option value="PE">PE</ion-select-option>
+        <ion-select-option value="PG">PG</ion-select-option>
+        <ion-select-option value="PH">PH</ion-select-option>
+        <ion-select-option value="PK">PK</ion-select-option>
+        <ion-select-option value="PL">PL</ion-select-option>
+        <ion-select-option value="PT">PT</ion-select-option>
+        <ion-select-option value="PY">PY</ion-select-option>
+        <ion-select-option value="QA">QA</ion-select-option>
+        <ion-select-option value="RO">RO</ion-select-option>
+        <ion-select-option value="RS">RS</ion-select-option>
+        <ion-select-option value="RU">RU</ion-select-option>
+        <ion-select-option value="SA">SA</ion-select-option>
+        <ion-select-option value="SE">SE</ion-select-option>
+        <ion-select-option value="SG">SG</ion-select-option>
+        <ion-select-option value="SI">SI</ion-select-option>
+        <ion-select-option value="SK">SK</ion-select-option>
+        <ion-select-option value="SN">SN</ion-select-option>
+        <ion-select-option value="SV">SV</ion-select-option>
+        <ion-select-option value="TD">TD</ion-select-option>
+        <ion-select-option value="TH">TH</ion-select-option>
+        <ion-select-option value="TN">TN</ion-select-option>
+        <ion-select-option value="TR">TR</ion-select-option>
+        <ion-select-option value="UA">UA</ion-select-option>
+        <ion-select-option value="US">US</ion-select-option>
+        <ion-select-option value="UY">UY</ion-select-option>
+        <ion-select-option value="UZ">UZ</ion-select-option>
+        <ion-select-option value="VE">VE</ion-select-option>
+        <ion-select-option value="VN">VN</ion-select-option>
+        <ion-select-option value="YE">YE</ion-select-option>
+        <ion-select-option value="ZA">ZA</ion-select-option>
+        <ion-select-option value="ZM">ZM</ion-select-option>
+        <ion-select-option value="ZW">ZW</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input type="email" formControlName="correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Username</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-footer>
+      <ion-button expand="block" type="submit" [disabled]="!artistForm.valid">Registrar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
