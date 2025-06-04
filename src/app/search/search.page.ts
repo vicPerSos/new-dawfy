@@ -2,8 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Subject, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { SearchService } from '../service/search.service'; // Ajusta la ruta si es necesario
 import { SearchDTO } from '../models/dtos/searchDTO';
+import { SearchService } from '../service/search.service'; // Ajusta la ruta si es necesario
+import { Cancion } from '../models/cancion/cancion';
+import { Album } from '../models/album/album';
+import { Artista } from '../models/artista/artista';
+
 
 @Component({
   selector: 'app-search',
@@ -34,11 +38,41 @@ export class SearchPage {
     ).subscribe({
       next: (res) => {
         if (res) {
-          console.log('Resultados de búsqueda:', res);
-          this.results = new SearchDTO(
-            res.canciones ?? [],
-            res.albums ?? [],   // OJO: aquí mapeas "albums" a "albumes"
-            res.artistas ?? []);
+          // Mapear canciones
+          const canciones = (res.canciones ?? []).map(
+            (c: any) => new Cancion(
+              c.nombre,
+              c.duracion,
+              c.imagen,
+              c.url,
+              c.categorias,
+              c.colaboradores
+            )
+          );
+
+          // Mapear álbumes (ajusta según tu constructor de Album)
+          const albumes = (res.albums ?? []).map(
+            (a: any) => new Album(
+              a.nombre,
+              a.fechaLanzamiento,
+              a.artista,
+              a.cancion,
+              a.imagen
+            )
+          );
+
+          // Mapear artistas (ajusta según tu constructor de Artista)
+          const artistas = (res.artistas ?? []).map(
+            (ar: any) => new Artista(
+              ar.nombre,
+              ar.fechaNacimiento,
+              ar.correo,
+              ar.pais,
+              ar.foto
+            )
+          );
+
+          this.results = new SearchDTO(canciones, albumes, artistas);
           console.log('Resultados mapeados:', this.results);
         }
       },
@@ -46,6 +80,11 @@ export class SearchPage {
         console.error('Error en la búsqueda:', err);
       }
     });
+  }
+
+  logAlbum(album: any, i: number) {
+    console.log('Álbum', i, album);
+    return '';
   }
 
   onSearchInput() {

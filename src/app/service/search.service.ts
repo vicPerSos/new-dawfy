@@ -1,6 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { SearchDTO } from '../models/dtos/searchDTO';
 
 
 @Injectable({
@@ -37,7 +38,7 @@ export class SearchService {
     console.log('CURL para probar en Postman o terminal:\n' + curl);
 
     // Hace la petición GET
-    return this.http.get<any[]>(url, { headers });
+    return this.http.get<any>(url, { headers });
   }
 
 

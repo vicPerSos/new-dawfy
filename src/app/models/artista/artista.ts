@@ -1,25 +1,18 @@
 export class Artista {
     nombre: string;
     fechaNacimiento: Date;
-    id: number;
     correo: string;
     pais: string;
     foto: string;
 
-    constructor(nombre: string, fechaNacimiento: Date, id: number, correo: string, pais: string, foto: string) {
+    constructor(nombre: string, fechaNacimiento: Date, correo: string, pais: string, foto: string) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
-        this.id = id;
         this.correo = correo;
         this.pais = pais;
         this.foto = foto;
     }
-    get idArtista(): number {
-        return this.id;
-    }
-    set idArtista(value: number) {
-        this.id = value;
-    }
+    
     get correoArtista(): string {
         return this.correo;
     }
