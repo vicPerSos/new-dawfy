@@ -11,7 +11,7 @@ ion-searchbar.custom {
     margin-top: 20px;
 }
 
-div.categoria{
+div.categoria {
     display: flex;
     justify-self: center;
     padding: 15px;
@@ -22,3 +22,19 @@ div.categoria{
     border-radius: 25px;
 }
 
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+ion-thumbnail {
+    --size: 80px;
+    --border-radius: 8px;
+}
+
+ion-note {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+}

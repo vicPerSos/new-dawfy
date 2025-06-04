@@ -14,11 +14,73 @@
         </ion-searchbar>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="6"
-        *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]">
-        <div class="categoria">Algo</div>
-      </ion-col>
-    </ion-row>
+    <ion-grid *ngIf="searchTerm.trim() !== ''">
+      <ion-segment [(ngModel)]="viewMode">
+        <ion-segment-button value="songs">
+          <ion-label>Canciones</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="albums">
+          <ion-label>Álbumes</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="artists">
+          <ion-label>Artistas</ion-label>
+        </ion-segment-button>
+
+      </ion-segment>
+
+      <!-- Canciones -->
+      <div *ngIf="viewMode === 'songs'">
+  <ion-list *ngIf="results.cancionesDTO.length > 0">
+    <ion-item *ngFor="let song of results.cancionesDTO">
+      <ion-thumbnail slot="start">
+        <img [src]="song.imagenCancion || 'assets/default-song.png'">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ song.nombre }}</h2>
+        <p>{{ song.duracion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="results.cancionesDTO.length === 0" class="no-results">
+    No se encontraron canciones
+  </div>
+</div>
+<!-- Álbumes -->
+<div *ngIf="viewMode === 'albums'">
+  <ion-list *ngIf="results.albumesDTO.length > 0">
+    <ion-item *ngFor="let album of results.albumesDTO">
+      <ion-thumbnail slot="start">
+        <img [src]="album.imagenAlbum || 'assets/default-album.png'">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ album.nombre }}</h2>
+        <p>{{ album.artista }} • {{ album.fechaLanzamiento | date }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="results.albumesDTO.length === 0" class="no-results">
+    No se encontraron álbumes
+  </div>
+</div>
+<!-- Artistas -->
+<div *ngIf="viewMode === 'artists'">
+  <ion-list *ngIf="results.artistasDTO.length > 0">
+    <ion-item *ngFor="let artist of results.artistasDTO">
+      <ion-avatar slot="start">
+        <img [src]="artist.foto || 'assets/default-artist.png'">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ artist.nombre }}</h2>
+        <p>{{ artist.pais }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="results.artistasDTO.length === 0" class="no-results">
+    No se encontraron artistas
+  </div>
+</div>
+
+
+    </ion-grid>
   </ion-grid>
 </ion-content>

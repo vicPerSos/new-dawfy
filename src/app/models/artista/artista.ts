@@ -1,15 +1,13 @@
 export class Artista {
     nombre: string;
-    nacionalidad: string;
     fechaNacimiento: Date;
     id: number;
     correo: string;
     pais: string;
     foto: string;
 
-    constructor(nombre: string, nacionalidad: string, fechaNacimiento: Date, id: number, correo: string, pais: string, foto: string) {
+    constructor(nombre: string, fechaNacimiento: Date, id: number, correo: string, pais: string, foto: string) {
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
         this.id = id;
         this.correo = correo;
@@ -46,13 +44,6 @@ export class Artista {
     }
     set nombreArtista(value: string) {
         this.nombre = value;
-    }
-
-    get nacionalidadArtista(): string {
-        return this.nacionalidad;
-    }
-    set nacionalidadArtista(value: string) {
-        this.nacionalidad = value;
     }
 
     get fechaNacimientoArtista(): Date {

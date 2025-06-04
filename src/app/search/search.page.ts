@@ -1,8 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { SearchService } from '../service/search.service'; // Ajusta la ruta si es necesario
+import { Subject, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Observable, Subject, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { SearchService } from '../service/search.service'; // Ajusta la ruta si es necesario
+import { SearchDTO } from '../models/dtos/searchDTO';
 
 @Component({
   selector: 'app-search',
@@ -11,6 +12,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   standalone: false,
 })
 export class SearchPage {
+  viewMode: 'songs' | 'albums' | 'artists' = 'albums';
+  results: SearchDTO = new SearchDTO([], [], []);
   searchTerm: string = '';
   private searchSubject = new Subject<string>();
 
@@ -32,6 +35,11 @@ export class SearchPage {
       next: (res) => {
         if (res) {
           console.log('Resultados de búsqueda:', res);
+          this.results = new SearchDTO(
+            res.canciones ?? [],
+            res.albums ?? [],   // OJO: aquí mapeas "albums" a "albumes"
+            res.artistas ?? []);
+          console.log('Resultados mapeados:', this.results);
         }
       },
       error: (err) => {
