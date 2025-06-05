@@ -11,12 +11,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  // Ejemplo de cómo obtener el token de la cookie
+  // Obtiene el token de la cookie (retorna string o null, nunca undefined)
   private getTokenFromCookie(): string | null {
     const matches = document.cookie.match('(^|;)\\s*authorization\\s*=\\s*([^;]+)');
-    return matches ? matches.pop() : null;
+    const token = matches ? matches.pop() : null;
+    return typeof token === 'string' ? token : null;
   }
 
+  // Hace la petición para obtener el rol del usuario
   getUserRole(): Observable<string> {
     const token = this.getTokenFromCookie();
     let headers = new HttpHeaders();
