@@ -6,69 +6,94 @@
       </div>
     </ion-toolbar>
   </ion-header>
-
-  <ion-row class="scrollable">
-    <ion-col>
-      <div class="scroll-container">
-        <ion-chip>Listas</ion-chip>
-        <ion-chip>Albums</ion-chip>
-        <ion-chip>Artistas</ion-chip>
-        <ion-chip>Podcasts</ion-chip>
-        <ion-chip>Canciones</ion-chip>
-
-
-      </div>
-
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="scrollable">
-    <ion-col>
-      <div class="scroll-container">
-        <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+  <!-- Panel para ARTISTA -->
+  <ng-container *ngIf="userRole === 'ARTISTA'; else clientePanel">
+    <h2>Panel de administración de álbumes</h2>
+    <!-- Aquí pones la gestión de álbumes: lista, crear, editar, borrar... -->
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary">Crear nuevo álbum</ion-button>
+        <!-- Lista de álbumes del artista -->
+        <ion-card *ngFor="let album of misAlbumes">
+          <img [src]="album.imagen || 'assets/default-album.png'" />
           <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-title>{{ album.nombre }}</ion-card-title>
           </ion-card-header>
+          <ion-card-content>
+            <ion-button color="secondary">Editar</ion-button>
+            <ion-button color="danger">Eliminar</ion-button>
+          </ion-card-content>
         </ion-card>
-      </div>
-    </ion-col>
-  </ion-row>
-  <ion-row class="scrollable">
-    <ion-col>
-      <div class="scroll-container">
-        <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </div>
-    </ion-col>
-  </ion-row>
-  <ion-row class="scrollable">
-    <ion-col>
-      <div class="scroll-container">
-        <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </div>
-    </ion-col>
-  </ion-row>
-  <ion-row class="scrollable">
-    <ion-col>
-      <div class="scroll-container">
-        <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </div>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <!-- Panel para CLIENTE -->
+  <ng-template #clientePanel>
+    <h2>Mi Biblioteca</h2>
+    <!-- Aquí tu vista de biblioteca, como ya tienes -->
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-chip>Listas</ion-chip>
+          <ion-chip>Albums</ion-chip>
+          <ion-chip>Artistas</ion-chip>
+          <ion-chip>Podcasts</ion-chip>
+          <ion-chip>Canciones</ion-chip>
+
+
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="scrollable">
+      <ion-col>
+        <div class="scroll-container">
+          <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
 
 </ion-content>
