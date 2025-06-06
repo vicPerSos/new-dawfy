@@ -21,12 +21,12 @@ export class UserService {
   // Hace la petición para obtener el rol del usuario
   getUserRole(): Observable<string> {
     const token = this.getTokenFromCookie();
+    console.log('Token usado:', token);
     let headers = new HttpHeaders();
-
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
-
-    return this.http.get<string>(this.apiUrl, { headers });
+    console.log('Llamando a', this.apiUrl, 'con headers:', headers);
+    return this.http.get(this.apiUrl, { headers, responseType: 'text' });
   }
 }

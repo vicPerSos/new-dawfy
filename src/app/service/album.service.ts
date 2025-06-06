@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AlbumService {
-
-
+  private apiUrl = 'http://localhost:8080/albums';
   constructor(private http: HttpClient) { }
 
   private getTokenFromCookie(): string | null {
@@ -24,6 +23,6 @@ export class AlbumService {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
 
-    return this.http.get<any[]>('http://localhost:8080/albumes/mis-albumes', { headers });
+    return this.http.get<any[]>(this.apiUrl + '/artista', { headers });
   }
 }

@@ -17,12 +17,13 @@ export class BibliotecaPage implements OnInit {
   constructor(private userService: UserService, private albumService: AlbumService) { }
 
   ngOnInit() {
-      console.log('Iniciando carga de rol de usuario...');
+    console.log('Iniciando carga de rol de usuario...');
     this.userService.getUserRole().subscribe({
-      next: (role) => {console.log('Rol recibido:', role);
-        this.userRole = role;
+      next: (role) => {
+        console.log('Rol recibido:', role);
+        this.userRole = role ? role.toUpperCase() : null; // <-- Normaliza a mayúsculas
         this.loadingRole = false;
-        if (role === 'ARTISTA') {
+        if (this.userRole === 'ARTISTA') {
           this.cargarMisAlbumes();
         }
       },
