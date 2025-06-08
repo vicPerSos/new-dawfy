@@ -65,6 +65,7 @@ export class RegisterArtistPage implements OnInit {
       const foto = item.images?.[0]?.url || '';
       const username = usernameForm; // usa el id como username
       const password = passwordForm; // por defecto, puedes pedir que lo edite luego
+      const spotifyId = item.id; // id de Spotify
 
       return new RegisterArtistDto(
         nombre,
@@ -73,7 +74,8 @@ export class RegisterArtistPage implements OnInit {
         pais,
         foto,
         username,
-        password
+        password,
+        spotifyId
       );
     });
   }

@@ -2,6 +2,7 @@ import { Artista } from "../artista/artista";
 import { Cancion } from "../cancion/cancion";
 
 export class Album {
+    id?: number;
     nombre: string;
     fechaLanzamiento: Date;
     artista: Artista;
@@ -14,6 +15,14 @@ export class Album {
         this.artista = artista;
         this.cancion = cancion;
         this.imagen = imagen;
+    }
+
+    get idAlbum(): number | undefined {
+        return this.id;
+    }
+
+    set idAlbum(value: number | undefined) {
+        this.id = value;
     }
 
     get nombreAlbum(): string {

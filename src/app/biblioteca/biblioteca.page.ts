@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { AlbumService } from '../service/album.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -14,7 +15,7 @@ export class BibliotecaPage implements OnInit {
   loadingRole = true;
   misAlbumes: any[] = []; // <-- ¡Aquí declaras la variable!
 
-  constructor(private userService: UserService, private albumService: AlbumService) { }
+  constructor(private userService: UserService, private albumService: AlbumService, private router: Router) { }
 
   ngOnInit() {
     console.log('Iniciando carga de rol de usuario...');
@@ -45,6 +46,9 @@ export class BibliotecaPage implements OnInit {
         console.error('Error obteniendo álbumes del artista:', err);
       }
     });
+  }
+  anadir() {
+    this.router.navigate(['/album-select']);
   }
 
 }

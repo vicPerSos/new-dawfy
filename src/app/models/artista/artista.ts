@@ -1,4 +1,5 @@
 export class Artista {
+    id?: number;
     nombre: string;
     fechaNacimiento: Date;
     correo: string;

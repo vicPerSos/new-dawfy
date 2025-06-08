@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Mostrar spinner o mensaje de carga mientras se obtiene el rol -->
+  <!-- Spinner mientras se obtiene el rol -->
   <ion-spinner *ngIf="loadingRole" name="crescent" style="margin: 2rem auto; display: block;"></ion-spinner>
 
   <!-- Panel para ARTISTA -->
@@ -15,7 +15,10 @@
     <h2>Panel de administración de álbumes</h2>
     <ion-row>
       <ion-col>
-        <ion-button color="primary">Crear nuevo álbum</ion-button>
+        <!-- Botón centrado -->
+        <div class="button-center">
+          <ion-button class="carga" color="primary" (click)="anadir()">Añadir nuevo álbum</ion-button>
+        </div>
         <!-- Lista de álbumes del artista -->
         <div *ngIf="misAlbumes.length > 0; else sinAlbumes">
           <ion-card *ngFor="let album of misAlbumes">
@@ -24,7 +27,6 @@
               <ion-card-title>{{ album.nombre }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <ion-button color="secondary">Editar</ion-button>
               <ion-button color="danger">Eliminar</ion-button>
             </ion-card-content>
           </ion-card>

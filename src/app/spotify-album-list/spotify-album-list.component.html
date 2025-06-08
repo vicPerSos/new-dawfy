@@ -1,0 +1,48 @@
+<ion-content [style]="{'min-height': '100vh', 'overflow-y': 'auto'}">
+  <ion-content [style]="{'min-height': '100vh', 'overflow-y': 'auto'}">
+    <div class="custom-title">
+      <h1>Selecciona un álbum de Spotify</h1>
+    </div>
+    <ion-button class="carga" expand="block" (click)="cargarAlbumsSpotify()" *ngIf="spotifyAlbums === null">
+      Cargar álbumes de Spotify
+    </ion-button>
+
+    <!-- Spinner de carga -->
+    <div class="ion-text-center ion-padding" *ngIf="isLoading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando álbumes...</p>
+    </div>
+
+    <!-- Lista de álbumes -->
+    <div class="album-grid" *ngIf="!isLoading && spotifyAlbums && spotifyAlbums.length > 0">
+      <div class="album-card" *ngFor="let album of spotifyAlbums" (click)="seleccionarAlbum(album)">
+        <img [src]="album.imagen" [alt]="album.nombre" (error)="handleImageError($event)" loading="lazy" />
+        <div class="album-title">{{ album.nombre }}</div>
+      </div>
+    </div>
+    <ion-text *ngIf="!isLoading && spotifyAlbums && spotifyAlbums.length === 0" class="ion-text-center">
+      <p>No se encontraron álbumes de Spotify.</p>
+    </ion-text>
+
+    <!-- Mensaje sin resultados -->
+    <ion-text *ngIf="!isLoading && spotifyAlbums && spotifyAlbums.length === 0" class="ion-text-center">
+      <p>No se encontraron álbumes de Spotify.</p>
+    </ion-text>
+
+    <!-- Detalle del álbum seleccionado -->
+    <ion-card *ngIf="albumSeleccionado">
+      <ion-card-header>
+        <ion-card-title>{{ albumSeleccionado.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngIf="cancionesAlbum && cancionesAlbum.length > 0">
+          <ion-item *ngFor="let track of cancionesAlbum">
+            {{ track.name }}
+          </ion-item>
+        </ion-list>
+        <ion-button expand="block" color="success" (click)="guardarAlbumEnBiblioteca()">
+          Guardar álbum en mi biblioteca
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

@@ -1,41 +1,38 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Album } from '../models/album/album';
-import { AlbumRequestBodyPOST } from '../models/album/albumRequestBody';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlbumService {
-  private apiUrl = 'http://localhost:8080/albums';
-  constructor(private http: HttpClient) { }
-
+export class SpotifyService {
+  private apiUrl = 'http://localhost:8080'; // Cambia por tu URL real
   private getTokenFromCookie(): string | null {
     const match = document.cookie.match(new RegExp('(^| )authorization=([^;]+)'));
     console.log('Token encontrado en la cookie:', match ? match[2] : 'No se encontró token');
     return match ? match[2] : null;
   }
 
-  getMisAlbumes(): Observable<any[]> {
+  constructor(private http: HttpClient) { }
+
+  getAlbumsDeSpotify(): Observable<{ albums: any[] }> {
     const token = this.getTokenFromCookie();
     let headers = new HttpHeaders();
 
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
-
-    return this.http.get<any[]>(this.apiUrl + '/artista', { headers });
+    // El return es igual, solo cambia el tipo declarado
+    return this.http.get<{ albums: any[] }>(`${this.apiUrl}/albums/artista`, { headers });
   }
-  postAlbum(album: AlbumRequestBodyPOST) {
+
+  getCancionesDeAlbum(albumId: string): Observable<any[]> {
     const token = this.getTokenFromCookie();
     let headers = new HttpHeaders();
 
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
-    return this.http.post('http://localhost:8080/albums', album, { headers });
+    return this.http.get<any[]>(`${this.apiUrl}/cancion/album/${albumId}`, { headers });
   }
-
-
 }

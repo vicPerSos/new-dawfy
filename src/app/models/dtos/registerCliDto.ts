@@ -6,6 +6,7 @@ export class RegisterCliDto {
     private foto: string;
     private username: string;
     private password: string;
+    private roll: string = "CLIENTE";
 
     constructor(
         nombre: string,
@@ -24,6 +25,7 @@ export class RegisterCliDto {
         this.foto = foto;
         this.username = username;
         this.password = password;
+        this.roll = "CLIENTE";
     }
 
     get _nombre(): string {
@@ -73,6 +75,13 @@ export class RegisterCliDto {
     }
     set _password(value: string) {
         this.password = value;
+    }
+
+    get _rollo(): string {
+        return this.roll;
+    }
+    set _rollo(value: string) {
+        this.roll = value;
     }
 
 

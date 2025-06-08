@@ -30,8 +30,11 @@ const routes: Routes = [
   {
     path: 'register/artist',
     loadComponent: () => import('./register-artist/register-artist.page').then(m => m.RegisterArtistPage)
+  },
+  {
+    path: 'album-select',
+    loadComponent: () => import('./spotify-album-list/spotify-album-list.component').then(m => m.SpotifyAlbumListComponent)
   }
-
 
 
 

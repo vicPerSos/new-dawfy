@@ -1,12 +1,13 @@
 export class RegisterArtistDto {
-    private nombre: string;
-    private correo: string;
-    private fechaNacimiento: Date;
-    private pais: string;
-    private foto: string;
-    private username: string;
-    private password: string;
-    private roll: string = "ARTISTA";
+    public nombre: string;
+    public correo: string;
+    public fechaNacimiento: Date;
+    public pais: string;
+    public foto: string;
+    public username: string;
+    public password: string;
+    public roll: string = "ARTISTA";
+    public spotifyId: string;
 
     constructor(
         nombre: string,
@@ -16,6 +17,7 @@ export class RegisterArtistDto {
         foto: string,
         username: string,
         password: string,
+        id_artista_spotify: string
 
     ) {
         this.nombre = nombre;
@@ -25,6 +27,8 @@ export class RegisterArtistDto {
         this.foto = foto;
         this.username = username;
         this.password = password;
+        this.spotifyId = id_artista_spotify;
+
     }
 
     get _nombre(): string {
@@ -81,5 +85,14 @@ export class RegisterArtistDto {
     set _roll(value: string) {
         this.roll = value;
     }
+
+    get _id_artista_spotify(): string {
+        return this.spotifyId;
+    }
+
+    set _id_artista_spotify(value: string) {
+        this.spotifyId = value;
+    }
+
 
 }

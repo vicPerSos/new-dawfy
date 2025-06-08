@@ -1,0 +1,25 @@
+h2 {
+    text-align: center;
+}
+
+ion-button.carga {
+    width: 220px; // o el ancho que prefieras
+    min-width: 160px;
+    margin: 0 auto;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+ion-button.carga {
+    width: 220px;
+    min-width: 160px;
+    margin: 0 auto;
+    display: block;
+}
+
