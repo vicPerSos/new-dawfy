@@ -20,8 +20,8 @@
           <ion-button class="carga" color="primary" (click)="anadir()">Añadir nuevo álbum</ion-button>
         </div>
         <!-- Lista de álbumes del artista -->
-        <div *ngIf="misAlbumes.length > 0; else sinAlbumes">
-          <ion-card *ngFor="let album of misAlbumes">
+        <div *ngIf="misAlbumes.length > 0; else sinAlbumes" class="album-list">
+          <ion-card *ngFor="let album of misAlbumes" class="album-card">
             <img [src]="album.imagen || 'assets/default-album.png'" />
             <ion-card-header>
               <ion-card-title>{{ album.nombre }}</ion-card-title>
@@ -30,6 +30,7 @@
               <ion-button color="danger">Eliminar</ion-button>
             </ion-card-content>
           </ion-card>
+
         </div>
         <ng-template #sinAlbumes>
           <p>No tienes álbumes creados todavía.</p>

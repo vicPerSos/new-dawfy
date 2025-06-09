@@ -23,3 +23,33 @@ ion-button.carga {
     display: block;
 }
 
+
+
+
+
+.album-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas salten a la siguiente fila */
+    gap: 16px;
+    /* Espacio entre tarjetas, ajusta a tu gusto */
+    padding: 8px 0;
+    justify-content: center;
+    /* Opcional: centra las tarjetas si hay menos de 2 */
+}
+
+.album-card {
+    flex: 0 0 48%;
+    /* Cada tarjeta ocupa casi la mitad de la fila */
+    max-width: 48%;
+    /* Limita el ancho máximo */
+    min-width: 180px;
+    /* Opcional: ancho mínimo para evitar tarjetas muy pequeñas */
+    min-height: 180px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    /* Importante para que el padding/gap no rompa el layout */
+}

@@ -25,6 +25,7 @@ export class BibliotecaPage implements OnInit {
         this.userRole = role ? role.toUpperCase() : null; // <-- Normaliza a mayúsculas
         this.loadingRole = false;
         if (this.userRole === 'ARTISTA') {
+          console.log('Es artista llamando a cargarMisAlbumes()');
           this.cargarMisAlbumes();
         }
       },
@@ -37,16 +38,19 @@ export class BibliotecaPage implements OnInit {
   }
 
   cargarMisAlbumes() {
-    this.albumService.getMisAlbumes().subscribe({ // <-- ¡Corrige el nombre!
+    console.log('[cargarMisAlbumes] Se va a pedir los álbumes al servicio...');
+    this.albumService.getMisAlbumesFromApi().subscribe({
       next: (albumes) => {
+        console.log('[cargarMisAlbumes] Álbumes recibidos:', albumes);
         this.misAlbumes = albumes;
       },
       error: (err) => {
         this.misAlbumes = [];
-        console.error('Error obteniendo álbumes del artista:', err);
+        console.error('[cargarMisAlbumes] Error obteniendo álbumes del artista:', err);
       }
     });
   }
+
   anadir() {
     this.router.navigate(['/album-select']);
   }

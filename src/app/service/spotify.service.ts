@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +27,19 @@ export class SpotifyService {
   }
 
   getCancionesDeAlbum(albumId: string): Observable<any[]> {
-    const token = this.getTokenFromCookie();
+    const token = this.getTokenFromCookie(); // Asegúrate de que este método existe y funciona
     let headers = new HttpHeaders();
 
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
+    } else {
+      throw new Error('No se encontró el token de autenticación de Spotify.');
     }
-    return this.http.get<any[]>(`${this.apiUrl}/cancion/album/${albumId}`, { headers });
+
+    return this.http.get<any>(`http://localhost:8080/cancion/album/${albumId}`, { headers }).pipe(
+      map(response => response.items ?? []),
+      catchError(() => of([])) // Si hay error, devuelve array vacío
+    );
   }
+
 }

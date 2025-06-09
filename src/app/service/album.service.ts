@@ -25,8 +25,22 @@ export class AlbumService {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
 
+
     return this.http.get<any[]>(this.apiUrl + '/artista', { headers });
   }
+
+  getMisAlbumesFromApi(): Observable<any[]> {
+    const token = this.getTokenFromCookie();
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+
+    return this.http.get<any[]>(this.apiUrl + '/artistaUsername', { headers });
+  }
+
   postAlbum(album: AlbumRequestBodyPOST) {
     const token = this.getTokenFromCookie();
     let headers = new HttpHeaders();
@@ -35,6 +49,17 @@ export class AlbumService {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
     return this.http.post('http://localhost:8080/albums', album, { headers });
+  }
+
+  postCancion(cancion: any): Observable<any> {
+    const token = this.getTokenFromCookie?.();
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    // Envía el objeto cancion como body
+    return this.http.post('http://localhost:8080/cancion', cancion, { headers });
   }
 
 
