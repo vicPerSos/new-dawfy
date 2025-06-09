@@ -90,4 +90,11 @@ export class SearchPage {
   onSearchInput() {
     this.searchSubject.next(this.searchTerm);
   }
+  formatDuration(ms: number): string {
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    // Asegura que los segundos siempre tengan dos dígitos
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
 }

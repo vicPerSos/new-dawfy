@@ -247,11 +247,4 @@ export class SpotifyAlbumListComponent implements OnInit {
     }
     continuarGuardado(artistaId, artistaNombre!);
   }
-
-
-
-
-
-
-
 }
