@@ -16,9 +16,6 @@ export class ArtistaService {
     console.log('Token encontrado en la cookie:', match ? match[2] : 'No se encontró token');
     return match ? match[2] : null;
   }
-  get(): Observable<Artista[]> {
-    return this.http.get<Artista[]>(this.url);
-  }
   getMe(): Observable<Artista> {
     const token = this.getTokenFromCookie();
     let headers = new HttpHeaders();
@@ -28,4 +25,26 @@ export class ArtistaService {
     }
     return this.http.get<Artista>(this.url + "/me", { headers });
   }
+  getArtistasByCategoria(categoria: string): Observable<Artista[]> {
+    const token = this.getTokenFromCookie();
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    return this.http.get<Artista[]>(this.url + `/categoria/${categoria}`, { headers });
+  }
+  // artista.service.ts
+  get(): Observable<Artista[]> {
+    const token = this.getTokenFromCookie();
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    return this.http.get<Artista[]>(this.url, { headers });
+  }
+
 }

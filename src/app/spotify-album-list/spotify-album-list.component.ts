@@ -85,12 +85,22 @@ export class SpotifyAlbumListComponent implements OnInit {
   // Método para formatear fechas
   // Si album.fechaLanzamiento ya viene como '25/04/2024'
   private formatearFecha(fecha: string): string {
+    if (!fecha) return ''; // Si la fecha viene vacía o null
     // Si ya es yyyy-MM-dd, la devolvemos tal cual
     if (/^\d{4}-\d{2}-\d{2}$/.test(fecha)) return fecha;
+
     // Si es dd/MM/yyyy, la convertimos
-    const [day, month, year] = fecha.split('/');
-    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    const partes = fecha.split('/');
+    if (partes.length === 3) {
+      const [day, month, year] = partes;
+      // Aseguramos que sean strings antes de aplicar padStart
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    }
+
+    // Si no es ninguno de los formatos esperados, la devolvemos tal cual
+    return fecha;
   }
+
 
 
 

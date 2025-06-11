@@ -1,0 +1,74 @@
+/* Contenedor de chips: scroll horizontal y separación */
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin-bottom: 24px; // Aumenta el espacio debajo de los chips
+}
+
+ion-chip {
+    font-size: 1rem;
+    --background: #ee4300;
+    --color: #222;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+ion-chip:hover,
+ion-chip:focus {
+    --background: #cc3a00;
+    --color: #d8d8d8;
+}
+
+/* Grid de artistas */
+.artistas-row {
+    margin-top: 0; // Quita margen superior para pegarlo a los chips
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+ion-col.lista {
+    margin-bottom: 16px;
+    min-width: 150px;
+    max-width: 220px;
+    flex: 1 1 45%;
+    padding: 20px;
+}
+
+ion-item {
+    border-radius: 10px;
+    margin: 0;
+    outline: solid 4px #ee4300;
+}
+
+ion-thumbnail img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #972b00;
+}
+
+ion-label {
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    color: #fff;
+}
+
+/* Responsive: para pantallas pequeñas */
+@media (max-width: 600px) {
+    ion-col.lista {
+        min-width: 100px;
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    ion-thumbnail img {
+        width: 48px;
+        height: 48px;
+    }
+}
